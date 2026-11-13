@@ -1,1 +1,7 @@
-
+Linux Installation
+(1)Install Virtual Box / VMware
+(2) Create a new virtual maachine (name, type, version)
+(3) Allocate Resources (set memory, create virtual disk)
+(4) Aattach linux ISO --select downloaded the RHEL or Ubuntu ISO file.
+(5) Start and install linux 
+after installation reboot the VM and loging with the created username or root account.      
