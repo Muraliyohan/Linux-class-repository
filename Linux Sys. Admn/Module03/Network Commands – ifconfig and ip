@@ -1,1 +1,42 @@
+Both commands show and configure network interfaces. ifconfig is the old tool (part of net-tools).
+ip is the modern replacement (part of iproute2) and is installed by default on current distros.
 
+ifconfig
+----------
+ifconfig                  # show all active interfaces
+ifconfig -a               # show all interfaces, including down ones
+ifconfig eth0             # show one interface
+sudo ifconfig eth0 down   # disable interface
+sudo ifconfig eth0 up     # enable interface
+
+If you get “command not found”, install it:
+--------------------------------------------
+sudo apt install net-tools      # Ubuntu/Debian
+sudo yum install net-tools      # RHEL/CentOS
+
+ip
+----
+ip addr                   # show IP addresses (same as ip a)
+ip addr show eth0         # one interface only
+ip link                   # show interface status (up/down, MAC address)
+ip route                  # show routing table and default gateway
+sudo ip link set eth0 up  # enable interface
+sudo ip link set eth0 down
+sudo ip addr add 192.168.1.50/24 dev eth0   # temporarily add an IP
+
+Comparison
+
+Task	ifconfig	ip
+Show IPs	ifconfig	ip addr
+Interface up	ifconfig eth0 up	ip link set eth0 up
+Routing table	route -n	ip route
+
+Reading the output
+
+eth0 or ens33: the network interface name (lo is the loopback)
+inet: the IPv4 address
+inet6: the IPv6 address
+ether: the MAC address
+UP / RUNNING: the interface is active
+
+IP changes made with these commands are temporary and are lost after a reboot.
