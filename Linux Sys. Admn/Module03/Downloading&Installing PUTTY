@@ -1,1 +1,30 @@
+Downloading and Installing PuTTY
+-----------------------------------
+PuTTY is a free SSH client for Windows. It connects you to a remote Linux server.
 
+Download
+----------
+Go to the official site: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+Download the 64-bit MSI installer (putty-64bit-x.xx-installer.msi). It is the easiest option and includes PuTTY, PuTTYgen, and Pageant.
+
+Install
+--------
+Double-click the .msi file and click Next through the wizard.
+Keep the default install location (C:\Program Files\PuTTY).
+Click Install, then Finish.
+
+Connect to a Linux server
+--------------------------
+Open PuTTY from the Start menu.
+Enter the server’s IP address in Host Name (or IP address).
+Keep Port as 22 and Connection type as SSH.
+Optionally type a name under Saved Sessions and click Save to reuse it.
+Click Open. On the first connection, accept the security alert.
+Enter your username and password at the prompt.
+
+Connecting with a key file (e.g., AWS .pem)
+--------------------------------------------
+
+Open PuTTYgen, click Load, select your .pem file, then click Save private key to create a .ppk file.
+In PuTTY, go to Connection → SSH → Auth → Credentials and browse to the .ppk file under “Private key file for authentication.”
+Go back to Session and click Open. The username is usually ec2-user or ubuntu on AWS.
