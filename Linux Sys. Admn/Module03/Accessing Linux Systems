@@ -1,1 +1,26 @@
+Accessing a Linux system depends on where it is and what you have. The common ways:
 
+**1. Remote Linux server (SSH)**
+```
+ssh username@server-ip
+```
+- Windows: use PowerShell/CMD (built-in `ssh`), PuTTY, or Windows Terminal
+- Mac/Linux: use Terminal
+- With a key file: `ssh -i key.pem username@server-ip`
+
+**2. Linux on your own Windows PC (WSL)**
+```
+wsl --install
+```
+Run this in PowerShell as Administrator, restart, and you get Ubuntu inside Windows.
+
+**3. Linux in a virtual machine**
+Install VirtualBox or VMware, then create a VM with an Ubuntu ISO.
+
+**4. Cloud Linux (good for DevOps practice)**
+Launch a free-tier EC2 instance on AWS (or an Azure/GCP VM), then connect with SSH.
+
+**5. Browser-based, no install**
+Online terminals like Killercoda or Play with Docker.
+
+Which one are you trying to do: connect to an existing server, or set up Linux to practice on? Tell me your OS (Windows/Mac) and I'll give exact steps.
