@@ -1,0 +1,108 @@
+1\. What is Linux?
+
+Linux is an open-source operating system based on the Linux kernel. It is widely used in servers, cloud computing, networking, and enterprise environments.
+
+2\. What are the different Linux distributions?
+
+* Red Hat Enterprise Linux (RHEL)
+
+* Ubuntu
+
+* CentOS
+
+* Rocky Linux
+
+* SUSE Linux
+
+3\. What is the difference between Linux and Unix?
+
+Linux is an open-source Unix-like operating system, whereas traditional Unix systems are generally proprietary.
+
+4\. What is the root user?
+
+Root is the superuser in Linux. It has full administrative privileges to manage the system, files, users, and services.
+
+5\. What is the difference between su and sudo?
+
+* su: Switches to another user account.
+
+* sudo: Executes a command with elevated privileges.
+
+### Part 2: Linux commands
+
+| Command          | Purpose                 |
+| ---------------- | ----------------------- |
+| top              | Monitor CPU and memory  |
+| df -h            | Check disk space        |
+| free -m          | Check memory            |
+| ps -ef           | List running processes  |
+| systemctl status | Check service status    |
+| chmod            | Change file permissions |
+| chown            | Change file ownership   |
+| grep             | Search text             |
+| find             | Find files              |
+| uptime           | Check system uptime     |
+| journalctl       | Check system logs       |
+| ip addr          | Check IP address        |
+
+### Part 3: Virtualization interview questions
+
+6\. What is virtualization?
+
+Virtualization is a technology that allows us to run multiple virtual machines on a single physical server. It helps improve hardware utilization and reduce infrastructure costs.
+
+7\. What is a hypervisor?
+
+A hypervisor is a virtualization layer that allows us to create and manage multiple virtual machines on a physical server.
+
+8\. What are the types of hypervisors?
+
+* Type 1: Bare-metal hypervisor. Example: VMware ESXi, Hyper-V.
+
+* Type 2: Hosted hypervisor. Example: Oracle VirtualBox, VMware Workstation.
+
+9\. What is a snapshot?
+
+A snapshot captures the state of a virtual machine at a particular point in time. It can be useful for rollback before making changes.
+
+10\. What is the difference between cloning and a snapshot?
+
+* Snapshot: Captures the VM's state at a particular time.
+
+* Clone: Creates a separate copy of an existing virtual machine.
+
+### Part 4: Linux administration scenario-based questions
+
+These are particularly important for mid-level Linux Administrator interviews.
+
+11\. What will you do if a Linux server is running slowly?
+
+"I will first check CPU and memory utilization using top or htop. Then I will check disk usage using df -h, identify high-resource processes, and review system logs to find the root cause."
+
+12\. How do you check disk space?
+
+bash
+df -h
+du -sh /var/*
+lsblk
+
+
+13\. How do you restart a service in Linux?
+
+bash
+systemctl restart sshd
+systemctl status sshd
+
+
+14\. How do you check running processes?
+
+bash
+ps -ef
+top
+
+
+15\. What will you do if a filesystem is 100% full?
+
+"I will identify which directory is consuming more space using du -sh, check log files, identify unnecessary files, and clean up safely after verifying that the files are not required."
+
+16\. How do you troubleshoot a server that is not reachable?
