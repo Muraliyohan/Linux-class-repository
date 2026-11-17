@@ -1,0 +1,95 @@
+Important Things to Remember in Linux
+
+## 1. Everything is a file
+Devices, directories, and processes are all treated as files. Config files are plain text, so you can read and edit them directly.
+
+## 2. Linux is case-sensitive
+`File.txt`, `file.txt`, and `FILE.txt` are three different files. The same goes for commands and usernames.
+
+## 3. Directory structure (starts at `/`)
+
+| Directory | Purpose |
+|---|---|
+| `/` | Root of the whole file system |
+| `/home` | Users' personal folders |
+| `/root` | Home folder of the root user |
+| `/etc` | Configuration files |
+| `/var` | Logs (`/var/log`) and changing data |
+| `/tmp` | Temporary files |
+| `/bin`, `/usr/bin` | Command programs |
+| `/dev` | Device files |
+| `/opt` | Optional/third-party software |
+
+There are no drive letters like `C:\`. Everything hangs under `/`.
+
+## 4. Essential commands
+```bash
+pwd              # current directory
+ls -l            # list with details
+ls -a            # include hidden files
+cd /path         # change directory
+cd ..            # go up one level
+mkdir dir        # create directory
+touch file       # create empty file
+cp a b           # copy
+mv a b           # move or rename
+rm file          # delete file
+rm -r dir        # delete directory
+cat file         # show file contents
+less file        # scroll through a file
+man command      # manual for a command
+```
+
+## 5. Be careful with `rm`
+There is **no Recycle Bin**. Deleted files are gone. Never run `rm -rf /` or `rm -rf *` without checking your location with `pwd` first.
+
+## 6. File permissions
+`ls -l` shows something like `-rwxr-xr--`.
+
+- `r` = read (4), `w` = write (2), `x` = execute (1)
+- Order: **owner, group, others**
+- `chmod 755 file` gives owner rwx, group r-x, others r-x
+- `chmod 644 file` gives owner rw-, group r--, others r--
+- `chown user:group file` changes ownership
+
+## 7. Root and sudo
+- `root` is the superuser and can do anything, including break the system.
+- Work as a normal user and use `sudo command` only when needed.
+
+## 8. Package management
+
+| Distro | Command |
+|---|---|
+| Ubuntu/Debian | `sudo apt update && sudo apt install package` |
+| RHEL/CentOS | `sudo yum install package` or `dnf` |
+
+## 9. Services and processes
+```bash
+systemctl status ssh        # check a service
+sudo systemctl start ssh    # start
+sudo systemctl enable ssh   # start at boot
+ps aux                      # list processes
+top                         # live resource usage
+kill PID                    # stop a process
+```
+
+## 10. Check logs first when something breaks
+```bash
+tail -f /var/log/syslog        # live log (Ubuntu)
+journalctl -xe                 # recent system errors
+```
+
+## 11. Useful habits
+- Press **Tab** to auto-complete file names and commands.
+- Press **Up arrow** to repeat previous commands, or run `history`.
+- **Ctrl+C** stops a running command, **Ctrl+L** clears the screen.
+- Use `grep` to search: `grep "error" file.log`
+- Use `df -h` (disk space) and `free -h` (memory) to check resources.
+- Back up a config file before editing: `cp file file.bak`
+
+## 12. Remember
+- Changes made with `ip` or `ifconfig` are temporary until reboot.
+- A password is not shown while typing. That is normal.
+- Use `man` or `--help` (for example `ls --help`) when you forget an option.
+
+Would you like these as a one-page cheat sheet, practice exercises, or an explanation in Telugu?
