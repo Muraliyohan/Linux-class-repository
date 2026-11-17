@@ -1,0 +1,71 @@
+Connecting Linux VMs Using PuTTY or MobaXterm
+
+Before connecting, you need the VM's IP address, and the VM must be reachable from your PC.
+
+**Step 1: Get the VM's IP address**
+
+Log in to the VM console (VirtualBox/VMware window) and run:
+```bash
+ip addr
+```
+Look for the `inet` value on `ens33` or `eth0`, for example `192.168.1.25`.
+
+**Step 2: Network mode (VirtualBox/VMware)**
+
+| Mode | Result |
+|---|---|
+| NAT         | VM can reach the internet, but your PC cannot SSH in directly unless you set up port forwarding |
+| **Bridged** | VM gets an IP on your home/office network. Easiest for SSH |
+| Host-only   | VM reachable only from your PC |
+
+For practice, use **Bridged** (or Host-only plus NAT). If you must use NAT, add a port forward: Host port `2222` → Guest port `22`, then connect to `127.0.0.1` on port `2222`.
+
+**Step 3: Make sure SSH is running on the VM**
+```bash
+sudo apt install openssh-server -y     # Ubuntu/Debian
+sudo systemctl enable --now ssh        # service is "sshd" on RHEL/CentOS
+sudo systemctl status ssh
+```
+If a firewall is on, allow SSH:
+```bash
+sudo ufw allow 22/tcp
+```
+
+**Step 4: Test connectivity from Windows**
+
+In Command Prompt:
+```
+ping 192.168.1.25
+```
+
+## Using PuTTY
+1. Open PuTTY.
+2. **Host Name:** the VM's IP (e.g., `192.168.1.25`)
+3. **Port:** `22`, **Connection type:** SSH
+4. Save the session under a name, then click **Open**.
+5. Accept the host key alert, then enter your username and password.
+
+## Using MobaXterm
+1. Download the **Home Edition (Installer)** from https://mobaxterm.mobatek.net
+2. Install and open it.
+3. Click **Session** → **SSH**.
+4. **Remote host:** the VM's IP, check **Specify username**, enter the username, port `22`.
+5. Click **OK**. Enter the password when asked.
+
+MobaXterm also saves sessions in the left panel, and it has a built-in **SFTP browser**, so you can drag and drop files between Windows and Linux. PuTTY cannot do that.
+
+## PuTTY vs MobaXterm
+
+| Feature           | PuTTY                           | MobaXterm |
+|-------------------|---------------------------------|-----------|
+| Tabs for multiple sessions | No (separate windows) | Yes |
+| File transfer | Needs separate tool (PSCP/WinSCP) | Built-in SFTP |
+| Saved sessions | Yes | Yes, easier to manage |
+| Copy/paste | Select to copy, right-click to paste | Standard |
+| Best for | Quick, lightweight connections | Daily admin and DevOps work |
+
+## Common problems
+- **Connection timed out:** wrong IP, VM is off, or the network mode is NAT without port forwarding.
+- **Connection refused:** the SSH service is not running (`sudo systemctl start ssh`).
+- **Permission denied:** wrong username or password, or root login is disabled. Use a normal user and `sudo`.
+- **IP changed after reboot:** the VM uses DHCP. Re-check with `ip addr`.
