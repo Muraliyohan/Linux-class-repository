@@ -1,0 +1,64 @@
+Virtualuzation 
+If an interviewer asks "Tell me about Virtualization", you can answer confidently like this.
+
+### 1\. Best interview answer (simple English)
+
+"Virtualization is a technology that allows us to create multiple virtual machines on a single physical server.
+
+Each virtual machine has its own operating system, CPU, memory, storage, and network resources.
+
+We use virtualization to improve hardware utilization, reduce infrastructure costs, and manage multiple servers efficiently.
+
+For example, using VMware ESXi or Microsoft Hyper-V, we can create and manage multiple virtual machines on one physical server."
+
+### 2\. Important virtualization types
+
+* Server Virtualization – Running multiple virtual servers on one physical server.
+
+* Desktop Virtualization – Accessing virtual desktops remotely.
+
+* Storage Virtualization – Combining multiple storage devices into one logical storage pool.
+
+* Network Virtualization – Creating virtual networks using software.
+
+### 3\. Popular virtualization tools
+
+| Tool              | Purpose                 |
+| ----------------- | ----------------------- |
+| VMware ESXi       | Server virtualization   |
+| Microsoft Hyper-V | Server virtualization   |
+| KVM               | Linux virtualization    |
+| Oracle VirtualBox | Desktop virtualization  |
+| Proxmox VE        | Virtualization platform |
+
+### 4\. Common follow-up interview questions
+
+* What is a hypervisor?
+
+* What is the difference between Type 1 and Type 2 hypervisors?
+
+* What is the difference between a physical server and a virtual machine?
+
+* What is a snapshot?
+
+* What is the difference between cloning and a snapshot?
+
+* What is VMware ESXi?
+
+* What is vCenter?
+
+### 5\. Practice: Interview question
+
+Interviewer: What is a Hypervisor?
+
+A. Software that creates and manages virtual machines.
+
+B. An operating system.
+
+C. A physical storage device.
+
+Check answer
+
+My suggestion: Since you're preparing for Linux Administrator roles, focus especially on VMware ESXi, KVM, Hypervisors, VM snapshots, cloning, and virtual machine troubleshooting.
+
+I can also help you prepare for a Linux Administrator technical interview with virtualization questions and answers.
